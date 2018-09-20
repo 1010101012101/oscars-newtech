@@ -170,7 +170,7 @@ public class PssTask {
                     }
                 }
 
-                connRepo.save(saveThese);
+                connRepo.saveAll(saveThese);
                 connRepo.flush();
             } finally {
                 // log.debug("unlocking connections");

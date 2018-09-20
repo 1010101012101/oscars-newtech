@@ -129,7 +129,7 @@ public class PssController {
         }
 
         List<RouterCommands> rc = rcRepo.findByConnectionId(connectionId);
-        rcRepo.delete(rc);
+        rcRepo.deleteAll(rc);
 
     }
 

@@ -59,7 +59,7 @@ public class MigrationEngine {
             }
             List<RouterCommands> existing = rcRepo.findByConnectionId(resv.getGri());
             if (existing.size() > 0) {
-                rcRepo.delete(existing);
+                rcRepo.deleteAll(existing);
                 rcRepo.flush();
             }
 
@@ -69,7 +69,7 @@ public class MigrationEngine {
 //            log.debug(pretty);
                 connRepo.save(c);
                 List<RouterCommands> rc = this.toCommands(resv);
-                rcRepo.save(rc);
+                rcRepo.saveAll(rc);
                 num++;
 
             } else {

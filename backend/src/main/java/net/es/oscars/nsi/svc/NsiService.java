@@ -481,7 +481,7 @@ public class NsiService {
                 invalidMappings.add(mapping);
             }
         }
-        nsiRepo.delete(invalidMappings);
+        nsiRepo.deleteAll(invalidMappings);
         return qrct;
     }
 
@@ -535,7 +535,7 @@ public class NsiService {
                 invalidMappings.add(mapping);
             }
         }
-        nsiRepo.delete(invalidMappings);
+        nsiRepo.deleteAll(invalidMappings);
         log.debug("returning results, total: " + resultId);
         return qsct;
     }

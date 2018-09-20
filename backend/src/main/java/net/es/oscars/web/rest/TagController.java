@@ -50,8 +50,8 @@ public class TagController {
         TagCategory ctg = TagCategory.builder().category("").build();
 
         if (in.getId() != null) {
-            ctg = ctgRepo.findOne(in.getId());
-            if (ctg == null) {
+            Optional<TagCategory> ctgOpt = ctgRepo.findById(in.getId());
+            if (!ctgOpt.isPresent()) {
                 throw new NoSuchElementException("category not found");
             }
         }
@@ -65,20 +65,21 @@ public class TagController {
     @RequestMapping(value = "/protected/tag/categories/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     public void delete(@PathVariable Integer id) {
-        TagCategory ctg = ctgRepo.findOne(id.longValue());
-        if (ctg != null) {
-            ctgRepo.delete(ctg);
+        Optional<TagCategory> ctg = ctgRepo.findById(id.longValue());
+        if (ctg.isPresent()) { String category = ctg.get().getCategory();
+            ctgRepo.delete(ctg.get());
+
         }
 
     }
     @RequestMapping(value = "/protected/tag/categories/expunge/{id}", method = RequestMethod.GET)
     @ResponseBody
     public void expunge(@PathVariable Integer id) {
-        TagCategory ctg = ctgRepo.findOne(id.longValue());
-        if (ctg != null) {
-            String category = ctg.getCategory();
+        Optional<TagCategory> ctg = ctgRepo.findById(id.longValue());
+        if (ctg.isPresent()) {
+            String category = ctg.get().getCategory();
             // TODO: actually expunge
-            ctgRepo.delete(ctg);
+            ctgRepo.delete(ctg.get());
 
         }
 

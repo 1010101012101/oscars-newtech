@@ -106,7 +106,7 @@ public class TransitionStates {
                     return;
                 }
 
-                connRepo.delete(deleteThese);
+                connRepo.deleteAll(deleteThese);
 
                 archiveThese.forEach(c -> {
                     c.setPhase(Phase.ARCHIVED);
