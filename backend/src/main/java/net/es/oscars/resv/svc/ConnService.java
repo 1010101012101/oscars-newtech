@@ -18,7 +18,7 @@ import net.es.oscars.resv.enums.Phase;
 import net.es.oscars.resv.enums.State;
 import net.es.oscars.topo.beans.IntRange;
 import net.es.oscars.topo.beans.PortBwVlan;
-import net.es.oscars.web.beans.*;
+import net.es.oscars.web.dto.*;
 import net.es.oscars.web.simple.Fixture;
 import net.es.oscars.web.simple.Pipe;
 import net.es.oscars.web.simple.SimpleConnection;
@@ -874,6 +874,10 @@ public class ConnService {
                 .beginning(Instant.ofEpochSecond(in.getBegin()))
                 .ending(Instant.ofEpochSecond(in.getEnd()))
                 .build();
+
+        log.info("b: "+s.getBeginning().toString());
+        log.info("e: "+s.getEnding().toString());
+
         Components cmp = Components.builder()
                 .fixtures(new ArrayList<>())
                 .junctions(new ArrayList<>())
@@ -972,6 +976,8 @@ public class ConnService {
             }
         }
         Instant expiration = Instant.ofEpochSecond(in.getHeldUntil());
+        log.info("exp: "+expiration.toString());
+
         Held h = Held.builder()
                 .connectionId(in.getConnectionId())
                 .cmp(cmp)

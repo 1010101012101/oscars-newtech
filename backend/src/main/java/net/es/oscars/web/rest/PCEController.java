@@ -7,8 +7,8 @@ import net.es.oscars.app.exc.PCEException;
 import net.es.oscars.app.exc.StartupException;
 import net.es.oscars.pce.PceService;
 
-import net.es.oscars.web.beans.PceRequest;
-import net.es.oscars.web.beans.PceResponse;
+import net.es.oscars.web.dto.PceRequest;
+import net.es.oscars.web.dto.PceResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;

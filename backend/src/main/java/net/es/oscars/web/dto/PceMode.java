@@ -1,4 +1,4 @@
-package net.es.oscars.web.beans;
+package net.es.oscars.web.dto;
 
 public enum PceMode {
     WIDEST_SUM,

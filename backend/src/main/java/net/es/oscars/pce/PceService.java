@@ -4,8 +4,8 @@ import net.es.oscars.app.exc.PCEException;
 import net.es.oscars.resv.ent.VlanJunction;
 import net.es.oscars.resv.ent.VlanPipe;
 import net.es.oscars.resv.svc.ResvService;
-import net.es.oscars.web.beans.PceRequest;
-import net.es.oscars.web.beans.PceResponse;
+import net.es.oscars.web.dto.PceRequest;
+import net.es.oscars.web.dto.PceResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,5 @@
 package net.es.oscars.web.rest;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import net.es.oscars.app.Startup;
 import net.es.oscars.app.exc.StartupException;
@@ -11,8 +9,8 @@ import net.es.oscars.resv.enums.EventType;
 import net.es.oscars.resv.enums.Phase;
 import net.es.oscars.resv.svc.ConnService;
 import net.es.oscars.resv.svc.LogService;
-import net.es.oscars.web.beans.CurrentlyHeldEntry;
-import net.es.oscars.web.beans.HoldException;
+import net.es.oscars.web.dto.CurrentlyHeldEntry;
+import net.es.oscars.web.dto.HoldException;
 import net.es.oscars.web.simple.SimpleConnection;
 import net.es.oscars.web.simple.Validity;
 import org.springframework.beans.factory.annotation.Autowired;

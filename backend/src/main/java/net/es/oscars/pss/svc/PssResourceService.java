@@ -18,7 +18,7 @@ import net.es.oscars.topo.ent.Device;
 import net.es.oscars.topo.enums.CommandParamType;
 import net.es.oscars.topo.enums.UrnType;
 import net.es.oscars.topo.svc.TopoService;
-import net.es.oscars.web.beans.Interval;
+import net.es.oscars.web.dto.Interval;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

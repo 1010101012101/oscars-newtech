@@ -2,10 +2,15 @@ package net.es.oscars.pss.rest;
 
 import lombok.extern.slf4j.Slf4j;
 import net.es.oscars.dto.pss.cmd.*;
+import net.es.oscars.rest.RestConfigurer;
+import net.es.oscars.rest.RestProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.client.support.BasicAuthorizationInterceptor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
 
 @Component
@@ -16,10 +21,17 @@ public class BackendServer implements BackendProxy {
 
     private RestTemplate restTemplate;
 
-    @Autowired
-    public BackendServer(RestTemplate restTemplate, @Value("${backend.url}") String backendUrl) {
 
-        this.restTemplate = restTemplate;
+    @Autowired
+    public BackendServer(@Value("${backend.url}") String backendUrl, RestProperties restProperties, RestConfigurer restConfigurer) {
+
+        try {
+            this.restTemplate = new RestTemplate(restConfigurer.getRestConfig(restProperties));
+
+        } catch (Exception ex) {
+            log.error(ex.getMessage(), ex);
+        }
+
         this.backendUrl = backendUrl;
         log.info("backend server URL: " + this.backendUrl);
     }

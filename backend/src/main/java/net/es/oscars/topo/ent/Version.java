@@ -6,10 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import java.time.Instant;
-import java.util.List;
-import java.util.Set;
 
 @Slf4j
 @Data

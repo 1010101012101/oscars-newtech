@@ -7,7 +7,7 @@ import net.es.oscars.security.ent.User;
 import net.es.oscars.security.jwt.JwtAuthenticationRequest;
 import net.es.oscars.security.jwt.JwtAuthenticationResponse;
 import net.es.oscars.security.jwt.JwtTokenUtil;
-import net.es.oscars.web.beans.PasswordChange;
+import net.es.oscars.web.dto.PasswordChange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

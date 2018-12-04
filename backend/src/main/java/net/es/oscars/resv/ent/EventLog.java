@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @Entity
 @Builder
-@AllArgsConstructor(suppressConstructorProperties=true)
+@AllArgsConstructor
 @NoArgsConstructor
 public class EventLog {
     @JsonCreator
@@ -38,7 +38,6 @@ public class EventLog {
     @NonNull
     private Instant created;
 
-    @NonNull
     private Instant archived;
 
     @OneToMany(cascade = CascadeType.ALL)

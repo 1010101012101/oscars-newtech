@@ -12,8 +12,8 @@ import net.es.oscars.resv.enums.EroDirection;
 import net.es.oscars.resv.svc.ResvLibrary;
 import net.es.oscars.topo.beans.TopoUrn;
 import net.es.oscars.topo.svc.TopoService;
-import net.es.oscars.web.beans.PcePath;
-import net.es.oscars.web.beans.PceResponse;
+import net.es.oscars.web.dto.PcePath;
+import net.es.oscars.web.dto.PceResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.transaction.annotation.Transactional;

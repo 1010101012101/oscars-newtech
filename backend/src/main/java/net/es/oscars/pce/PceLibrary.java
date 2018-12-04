@@ -8,7 +8,7 @@ import net.es.oscars.resv.svc.ResvLibrary;
 import net.es.oscars.topo.beans.TopoAdjcy;
 import net.es.oscars.topo.beans.TopoUrn;
 import net.es.oscars.topo.enums.UrnType;
-import net.es.oscars.web.beans.PcePath;
+import net.es.oscars.web.dto.PcePath;
 import org.jgrapht.GraphPath;
 import org.jgrapht.alg.shortestpath.GraphMeasurer;
 import org.jgrapht.graph.DirectedWeightedMultigraph;

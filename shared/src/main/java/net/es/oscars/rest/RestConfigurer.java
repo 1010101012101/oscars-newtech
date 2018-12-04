@@ -7,9 +7,10 @@ import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.ssl.SSLContexts;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
 
 import javax.naming.ConfigurationException;
 import javax.net.ssl.SSLContext;
@@ -20,9 +21,11 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 
-public class RestTemplateBuilder {
+@Configuration
+public class RestConfigurer {
 
-    public RestTemplate build(RestProperties restProperties) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, ConfigurationException, KeyManagementException {
+    @Bean
+    public ClientHttpRequestFactory getRestConfig(RestProperties restProperties) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, ConfigurationException, KeyManagementException {
         if (restProperties == null) {
             throw new ConfigurationException("no rest properties set!");
         }
@@ -36,8 +39,6 @@ public class RestTemplateBuilder {
             throw new ConfigurationException("no rest.internal-truststore-path property set ");
         }
 
-        String sharedusername = restProperties.getInternalUsername();
-        String sharedpassword = restProperties.getInternalPassword();
         String truststorepath = restProperties.getInternalTruststorePath();
 
 
@@ -46,17 +47,13 @@ public class RestTemplateBuilder {
         SSLContext sslContext = SSLContexts.custom().loadTrustMaterial(truststorefile).build();
         SSLConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(sslContext);
 
-        BasicCredentialsProvider credentialsProvider = new BasicCredentialsProvider();
-        credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(sharedusername, sharedpassword));
 
         HttpClient httpClient = HttpClientBuilder.create()
                 .setSSLSocketFactory(sslSocketFactory)
-                .setDefaultCredentialsProvider(credentialsProvider)
                 .build();
 
-        ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
+        return new HttpComponentsClientHttpRequestFactory(httpClient);
 
-        return new RestTemplate(requestFactory);
 
     }
 }

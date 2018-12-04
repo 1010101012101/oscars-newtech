@@ -3,13 +3,10 @@ package net.es.oscars.resv.svc;
 import inet.ipaddr.AddressStringException;
 import inet.ipaddr.IPAddress;
 import inet.ipaddr.IPAddressString;
-import inet.ipaddr.format.AddressCreator;
-import inet.ipaddr.ipv4.IPv4Address;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import net.es.oscars.app.exc.PSSException;
 import net.es.oscars.app.props.PssProperties;
-import net.es.oscars.dto.pss.cmd.Command;
 import net.es.oscars.resv.beans.PeriodBandwidth;
 import net.es.oscars.resv.db.*;
 import net.es.oscars.resv.ent.*;
@@ -18,12 +15,11 @@ import net.es.oscars.resv.enums.Phase;
 import net.es.oscars.topo.beans.*;
 import net.es.oscars.topo.enums.CommandParamType;
 import net.es.oscars.topo.svc.TopoService;
-import net.es.oscars.web.beans.Interval;
+import net.es.oscars.web.dto.Interval;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.stereotype.Service;
 
-import java.net.InetAddress;
 import java.util.*;
 
 @Service

@@ -1,4 +1,4 @@
-package net.es.oscars.web.beans;
+package net.es.oscars.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @Data
 @NoArgsConstructor
-@AllArgsConstructor(suppressConstructorProperties=true)
+@AllArgsConstructor
 public class ConnectionList {
 
     private int page;

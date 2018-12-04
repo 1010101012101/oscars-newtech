@@ -1,4 +1,4 @@
-package net.es.oscars.web.beans;
+package net.es.oscars.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

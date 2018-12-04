@@ -11,7 +11,7 @@ import java.time.Instant;
 @Data
 @Entity
 @Builder
-@AllArgsConstructor(suppressConstructorProperties = true)
+@AllArgsConstructor
 @NoArgsConstructor
 public class Held {
     @JsonCreator
@@ -35,6 +35,7 @@ public class Held {
     private String connectionId;
 
     @NonNull
+    @Basic
     private Instant expiration;
 
     @NonNull

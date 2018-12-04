@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import net.es.oscars.resv.enums.Phase;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,7 +13,7 @@ import java.time.Instant;
 @Data
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor(suppressConstructorProperties = true)
+@AllArgsConstructor
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "refId")
@@ -37,9 +38,11 @@ public class Schedule {
     private Long id;
 
     @NonNull
+    @Basic
     private Instant beginning;
 
     @NonNull
+    @Basic
     private Instant ending;
 
     // these will be populated by the system when designing

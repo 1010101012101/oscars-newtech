@@ -1,4 +1,4 @@
-package net.es.oscars.web.beans;
+package net.es.oscars.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +10,7 @@ import java.time.Instant;
 @Builder
 @Data
 @NoArgsConstructor
-@AllArgsConstructor(suppressConstructorProperties=true)
+@AllArgsConstructor
 public class Interval {
     private Instant beginning;
     private Instant ending;

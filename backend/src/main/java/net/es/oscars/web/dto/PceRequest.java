@@ -1,18 +1,17 @@
-package net.es.oscars.web.beans;
+package net.es.oscars.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
 import java.util.List;
 import java.util.Set;
 
 @Builder
 @Data
 @NoArgsConstructor
-@AllArgsConstructor(suppressConstructorProperties=true)
+@AllArgsConstructor
 public class PceRequest {
     private Interval interval;
     private String a;
